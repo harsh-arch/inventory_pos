@@ -1,0 +1,8 @@
+{
+    "id": "LOG-018",
+    "productId": "PROD-002",
+    "timestamp": "2025-10-02T10:41:20.489467Z",
+    "changeQuantity": 19.0,
+    "reason": "Initial Stock",
+    "referenceId": "PROD-002"
+}

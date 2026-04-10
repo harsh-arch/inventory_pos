@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Retail MS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body id="dashboard-page">
+    <div id="toast-container"></div>
+    <div id="modal-container"></div>
+    <nav class="navbar">
+        <a href="/" class="nav-brand">Retail MS</a>
+        <div class="global-search-container" id="global-search-container">
+            <input type="search" id="global-search-bar" placeholder="Search products, customers, sales...">
+            <div id="global-search-results" class="global-search-results-box"></div>
+        </div>
+        <div class="nav-actions">
+            <button class="primary-btn small-btn" id="quick-add-product-btn"><i class="fa-solid fa-plus"></i> Quick Add</button>
+            <div class="notification-container">
+                <i class="fa-solid fa-bell" id="notification-bell"></i>
+                <span class="notification-badge" id="notification-badge" style="display:none;"></span>
+                <div class="notification-dropdown" id="notification-dropdown">
+                    <div class="notification-header">
+                        <span>Notifications</span>
+                        <button id="mark-all-read-btn">Mark all as read</button>
+                    </div>
+                    <ul id="notification-list"></ul>
+                </div>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/" class="active">Dashboard</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/customers">Customers</a></li>
+            <li><a href="/suppliers">Suppliers</a></li>
+            <li><a href="/purchase-orders">Purchase Orders</a></li>
+            <li><a href="/pos">Point of Sale</a></li>
+            <li><a href="/sales">Sales</a></li>
+            <li><a href="/expenses">Expenses</a></li>
+            <li><a href="/stock">Stock Mgt.</a></li>
+            <li><a href="/adjustments">Adjustments</a></li>
+            <li><a href="/reports">Reports</a></li>
+            <li><a href="/settings">Settings</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="page-header">
+            <h1>Dashboard</h1>
+            <div class="header-actions">
+                 <div class="date-filter">
+                    <label for="dashboard-start-date">From:</label>
+                    <input type="date" id="dashboard-start-date">
+                    <label for="dashboard-end-date">To:</label>
+                    <input type="date" id="dashboard-end-date">
+                    <button id="dashboard-filter-btn" class="primary-btn">Apply</button>
+                </div>
+                <div class="quick-actions">
+                    <button class="primary-btn" onclick="window.location.href='/pos'"><i class="fa-solid fa-cash-register"></i> New Sale</button>
+                </div>
+            </div>
+        </div>
+        <div id="dashboard-loader" class="loader-container"><div class="loader"></div></div>
+        <div id="dashboard-content" style="display:none;">
+            <div class="kpi-grid">
+                <div class="kpi-card"><h4>Total Revenue</h4><p id="kpi-revenue">RS. 0.00</p><span id="kpi-revenue-change" class="kpi-change"></span></div>
+                <div class="kpi-card"><h4>Net Profit</h4><p id="kpi-profit">RS. 0.00</p><span id="kpi-profit-change" class="kpi-change"></span></div>
+                <div class="kpi-card"><h4>Sales Count</h4><p id="kpi-sales-count">0</p><span id="kpi-sales-count-change" class="kpi-change"></span></div>
+                <div class="kpi-card"><h4>Avg. Sale Value</h4><p id="kpi-avg-sale">RS. 0.00</p><span id="kpi-avg-sale-change" class="kpi-change"></span></div>
+            </div>
+             <div class="dashboard-grid">
+                 <div class="card real-time-stats">
+                     <h3>Today's Activity</h3>
+                     <div class="stat-item"><span>Sales Revenue:</span><strong id="today-sales">RS. 0.00</strong></div>
+                     <div class="stat-item"><span>Credit Sales:</span><strong id="today-credit-sales">RS. 0.00</strong></div>
+                     <div class="stat-item"><span>Transactions:</span><strong id="today-transactions">0</strong></div>
+                     <div class="stat-item"><span>Critical Alerts:</span><strong id="critical-alerts" class="text-danger">0</strong></div>
+                 </div>
+                 <div class="card system-overview-stats">
+                    <h3>System Overview</h3>
+                    <div class="stat-item"><span>Total Products:</span><strong id="stat-total-products">0</strong></div>
+                    <div class="stat-item"><span>Total Customers:</span><strong id="stat-total-customers">0</strong></div>
+                    <div class="stat-item"><span>Inventory Value:</span><strong id="stat-inventory-value">RS. 0.00</strong></div>
+                 </div>
+                <div class="card chart-card">
+                    <h3>Daily Revenue & Profit</h3>
+                    <canvas id="sales-overview-chart"></canvas>
+                </div>
+                <div class="card">
+                    <h3>Top 5 Selling Products</h3>
+                    <ul id="top-products-list" class="dashboard-list"></ul>
+                </div>
+                 <div class="card">
+                    <h3>Recent Sales Activity</h3>
+                    <ul id="recent-sales-list" class="dashboard-list"></ul>
+                </div>
+                 <div class="card full-width-card">
+                    <h3>Low Stock Alerts</h3>
+                    <ul id="low-stock-alerts-list" class="dashboard-list"></ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

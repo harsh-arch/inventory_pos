@@ -1,0 +1,13 @@
+{
+    "id": "PROD-001",
+    "name": "aalo",
+    "price": 100.0,
+    "cost": 16.0,
+    "quantity": -5.0,
+    "unit": "pcs",
+    "barcode": "",
+    "expiryDate": "",
+    "imagePath": "",
+    "category": "spoilabel",
+    "reorderThreshold": 5.0
+}

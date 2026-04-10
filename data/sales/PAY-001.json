@@ -1,0 +1,8 @@
+{
+    "id": "PAY-001",
+    "type": "payment",
+    "timestamp": "2025-10-02T09:00:49.004904Z",
+    "customerId": "CUST-001",
+    "customerName": "hitesh",
+    "totalAmount": 5.0
+}

@@ -1,0 +1,17 @@
+{
+    "id": "RTN-005",
+    "type": "return",
+    "originalSaleId": "SALE-007",
+    "timestamp": "2025-10-02T10:45:49.995561Z",
+    "customerId": "cash_customer",
+    "customerName": "Walk-in / Cash Customer",
+    "totalAmount": -20,
+    "items": [
+        {
+            "id": "PROD-002",
+            "quantity": 1,
+            "price": 20,
+            "name": "PYAJ"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "id": "ADJ-001",
+    "timestamp": "2025-10-02T09:01:53.046232Z",
+    "productId": "PROD-001",
+    "productName": "aalo",
+    "quantityChange": -1.0,
+    "unit": "pcs",
+    "costAtTime": 16.0,
+    "reason": "CFHFG"
+}

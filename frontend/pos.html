@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Point of Sale - Retail MS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body id="pos-page">
+    <div id="toast-container"></div>
+    <div id="modal-container"></div>
+    <nav class="navbar">
+        <a href="/" class="nav-brand">Retail MS</a>
+        <div class="global-search-container" id="global-search-container">
+            <input type="search" id="global-search-bar" placeholder="Search anything...">
+            <div id="global-search-results" class="global-search-results-box"></div>
+        </div>
+        <div class="nav-actions">
+            <button class="primary-btn small-btn" id="quick-add-product-btn"><i class="fa-solid fa-plus"></i> Quick Add</button>
+            <div class="notification-container">
+                <i class="fa-solid fa-bell" id="notification-bell"></i>
+                <span class="notification-badge" id="notification-badge" style="display:none;"></span>
+                <div class="notification-dropdown" id="notification-dropdown">
+                    <div class="notification-header">
+                        <span>Notifications</span>
+                        <button id="mark-all-read-btn">Mark all as read</button>
+                    </div>
+                    <ul id="notification-list"></ul>
+                </div>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/customers">Customers</a></li>
+            <li><a href="/suppliers">Suppliers</a></li>
+            <li><a href="/purchase-orders">Purchase Orders</a></li>
+            <li><a href="/pos" class="active">Point of Sale</a></li>
+            <li><a href="/sales">Sales</a></li>
+            <li><a href="/expenses">Expenses</a></li>
+            <li><a href="/stock">Stock Mgt.</a></li>
+            <li><a href="/adjustments">Adjustments</a></li>
+            <li><a href="/reports">Reports</a></li>
+            <li><a href="/settings">Settings</a></li>
+        </ul>
+    </nav>
+    <main class="pos-grid">
+        <section class="card pos-products">
+            <h2>Products</h2>
+            <input type="text" id="product-search" placeholder="Search or Scan Barcode...">
+            <div id="pos-product-list" class="product-scroll-list">
+                <div id="pos-product-loader" class="loader-container"><div class="loader"></div></div>
+            </div>
+        </section>
+        <section class="card pos-cart">
+            <div class="cart-header">
+                <h2>Current Sale</h2>
+                <button id="clear-cart-btn" class="secondary-btn small-btn">Clear Cart</button>
+            </div>
+            <div id="cart-items" class="cart-scroll-list">
+                <p class="cart-empty-message">Cart is empty</p>
+            </div>
+            <div class="cart-summary">
+                <div class="summary-line">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">RS. 0.00</span>
+                </div>
+                <div class="summary-line discount-line">
+                    <label for="sale-discount">Discount (RS.):</label>
+                    <input type="number" id="sale-discount" value="0" min="0" step="0.01">
+                </div>
+                <div class="summary-line total">
+                    <span>Total Amount:</span>
+                    <span id="cart-total-amount">RS. 0.00</span>
+                </div>
+            </div>
+        </section>
+        <section class="card pos-checkout">
+            <h2>Checkout</h2>
+            <div class="form-group">
+                <label for="customer-select">Customer:</label>
+                <select id="customer-select">
+                    <option value="cash_customer" selected>Walk-in / Cash Customer</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sale-remarks">Remarks:</label>
+                <textarea id="sale-remarks" rows="2"></textarea>
+            </div>
+            <div class="payment-methods">
+                <button class="payment-btn" data-method="Cash">Cash</button>
+                <button class="payment-btn" data-method="Card">Card</button>
+                <button class="payment-btn" data-method="Credit">Credit</button>
+            </div>
+            <button id="complete-sale-btn" class="primary-btn complete-sale-btn" disabled>Complete Sale</button>
+        </section>
+    </main>
+    <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "id": "RTN-002",
+    "type": "return",
+    "originalSaleId": "SALE-005",
+    "timestamp": "2025-10-02T10:35:28.196207Z",
+    "customerId": "cash_customer",
+    "customerName": "Walk-in / Cash Customer",
+    "totalAmount": -100,
+    "items": [
+        {
+            "id": "PROD-001",
+            "quantity": 1,
+            "price": 100,
+            "name": "aalo"
+        }
+    ]
+}

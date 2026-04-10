@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suppliers - Retail MS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body id="suppliers-page">
+    <div id="toast-container"></div>
+    <div id="modal-container"></div>
+    <nav class="navbar">
+        <a href="/" class="nav-brand">Retail MS</a>
+        <div class="global-search-container" id="global-search-container">
+            <input type="search" id="global-search-bar" placeholder="Search anything...">
+            <div id="global-search-results" class="global-search-results-box"></div>
+        </div>
+        <div class="nav-actions">
+            <button class="primary-btn small-btn" id="quick-add-product-btn"><i class="fa-solid fa-plus"></i> Quick Add</button>
+            <div class="notification-container">
+                <i class="fa-solid fa-bell" id="notification-bell"></i>
+                <span class="notification-badge" id="notification-badge" style="display:none;"></span>
+                <div class="notification-dropdown" id="notification-dropdown">
+                    <div class="notification-header">
+                        <span>Notifications</span>
+                        <button id="mark-all-read-btn">Mark all as read</button>
+                    </div>
+                    <ul id="notification-list"></ul>
+                </div>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/customers">Customers</a></li>
+            <li><a href="/suppliers" class="active">Suppliers</a></li>
+            <li><a href="/purchase-orders">Purchase Orders</a></li>
+            <li><a href="/pos">Point of Sale</a></li>
+            <li><a href="/sales">Sales</a></li>
+            <li><a href="/expenses">Expenses</a></li>
+            <li><a href="/stock">Stock Mgt.</a></li>
+            <li><a href="/adjustments">Adjustments</a></li>
+            <li><a href="/reports">Reports</a></li>
+            <li><a href="/settings">Settings</a></li>
+        </ul>
+    </nav>
+    <main class="page-grid">
+        <section class="card">
+            <h2 id="supplier-form-title">Add New Supplier</h2>
+            <form id="supplier-form">
+                <input type="hidden" id="supplier-id" name="id">
+                <div class="form-group">
+                    <label for="supplier-name">Supplier Name:</label>
+                    <input type="text" id="supplier-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="supplier-contact">Contact Person:</label>
+                    <input type="text" id="supplier-contact" name="contact">
+                </div>
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="supplier-phone">Phone:</label>
+                        <input type="tel" id="supplier-phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="supplier-email">Email:</label>
+                        <input type="email" id="supplier-email" name="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="supplier-address">Address:</label>
+                    <textarea id="supplier-address" name="address" rows="2"></textarea>
+                </div>
+                 <div class="form-group">
+                    <label for="supplier-notes">Notes:</label>
+                    <textarea id="supplier-notes" name="notes" rows="2"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" id="supplier-submit-btn" class="primary-btn">Add Supplier</button>
+                    <button type="button" id="cancel-edit-btn" class="secondary-btn" style="display:none;">Cancel Edit</button>
+                </div>
+            </form>
+        </section>
+        <section class="card">
+            <h2>Supplier List</h2>
+            <div id="supplier-loader" class="loader-container"><div class="loader"></div></div>
+            <table id="supplier-list-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Contact</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="supplier-list-body"></tbody>
+            </table>
+            <div class="pagination-controls" id="supplier-pagination"></div>
+        </section>
+    </main>
+    <script src="/static/script.js"></script>
+</body>
+</html>

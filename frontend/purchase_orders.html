@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase Orders - Retail MS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body id="purchase-orders-page">
+    <div id="toast-container"></div>
+    <div id="modal-container"></div>
+    <nav class="navbar">
+        <a href="/" class="nav-brand">Retail MS</a>
+        <div class="global-search-container" id="global-search-container">
+            <input type="search" id="global-search-bar" placeholder="Search anything...">
+            <div id="global-search-results" class="global-search-results-box"></div>
+        </div>
+        <div class="nav-actions">
+            <button class="primary-btn small-btn" id="quick-add-product-btn"><i class="fa-solid fa-plus"></i> Quick Add</button>
+            <div class="notification-container">
+                <i class="fa-solid fa-bell" id="notification-bell"></i>
+                <span class="notification-badge" id="notification-badge" style="display:none;"></span>
+                <div class="notification-dropdown" id="notification-dropdown">
+                    <div class="notification-header">
+                        <span>Notifications</span>
+                        <button id="mark-all-read-btn">Mark all as read</button>
+                    </div>
+                    <ul id="notification-list"></ul>
+                </div>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/customers">Customers</a></li>
+            <li><a href="/suppliers">Suppliers</a></li>
+            <li><a href="/purchase-orders" class="active">Purchase Orders</a></li>
+            <li><a href="/pos">Point of Sale</a></li>
+            <li><a href="/sales">Sales</a></li>
+            <li><a href="/expenses">Expenses</a></li>
+            <li><a href="/stock">Stock Mgt.</a></li>
+            <li><a href="/adjustments">Adjustments</a></li>
+            <li><a href="/reports">Reports</a></li>
+            <li><a href="/settings">Settings</a></li>
+        </ul>
+    </nav>
+    <main class="page-grid">
+        <section class="card">
+            <h2>Create Purchase Order</h2>
+            <form id="po-form">
+                <div class="form-group">
+                    <label for="po-supplier-select">Supplier:</label>
+                    <select id="po-supplier-select" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="po-product-search">Add Product:</label>
+                    <input type="text" id="po-product-search" placeholder="Search products to add...">
+                    <div id="po-product-results" class="search-results-box"></div>
+                </div>
+                <h3>Order Items</h3>
+                <table id="po-items-table">
+                    <thead><tr><th>Product</th><th>Quantity</th><th>Unit Cost</th><th>Total</th><th>Action</th></tr></thead>
+                    <tbody id="po-items-body">
+                        <tr id="po-empty-row"><td colspan="5" style="text-align: center;">No items added.</td></tr>
+                    </tbody>
+                </table>
+                <div class="form-actions">
+                    <button type="submit" class="primary-btn">Create PO</button>
+                </div>
+            </form>
+        </section>
+        <section class="card">
+            <h2>Purchase Order History</h2>
+            <div id="po-loader" class="loader-container"><div class="loader"></div></div>
+            <table id="po-list-table">
+                <thead><tr><th>ID</th><th>Supplier</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+                <tbody id="po-list-body"></tbody>
+            </table>
+            <div class="pagination-controls" id="po-pagination"></div>
+        </section>
+    </main>
+    <script src="/static/script.js"></script>
+</body>
+</html>

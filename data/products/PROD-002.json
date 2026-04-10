@@ -1,0 +1,13 @@
+{
+    "id": "PROD-002",
+    "name": "PYAJ",
+    "price": 20.0,
+    "cost": 19.0,
+    "quantity": 21.0,
+    "unit": "pcs",
+    "barcode": "",
+    "expiryDate": "",
+    "imagePath": "",
+    "category": "Uncategorized",
+    "reorderThreshold": 0.0
+}

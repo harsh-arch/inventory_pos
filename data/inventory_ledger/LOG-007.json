@@ -1,0 +1,8 @@
+{
+    "id": "LOG-007",
+    "productId": "PROD-001",
+    "timestamp": "2025-10-02T09:01:53.047228Z",
+    "changeQuantity": -1.0,
+    "reason": "Adjustment: CFHFG",
+    "referenceId": "ADJ-001"
+}

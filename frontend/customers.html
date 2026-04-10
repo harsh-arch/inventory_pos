@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers - Retail MS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body id="customers-page">
+    <div id="toast-container"></div>
+    <div id="modal-container"></div>
+    <nav class="navbar">
+        <a href="/" class="nav-brand">Retail MS</a>
+        <div class="global-search-container" id="global-search-container">
+            <input type="search" id="global-search-bar" placeholder="Search anything...">
+            <div id="global-search-results" class="global-search-results-box"></div>
+        </div>
+        <div class="nav-actions">
+            <button class="primary-btn small-btn" id="quick-add-product-btn"><i class="fa-solid fa-plus"></i> Quick Add</button>
+            <div class="notification-container">
+                <i class="fa-solid fa-bell" id="notification-bell"></i>
+                <span class="notification-badge" id="notification-badge" style="display:none;"></span>
+                <div class="notification-dropdown" id="notification-dropdown">
+                    <div class="notification-header">
+                        <span>Notifications</span>
+                        <button id="mark-all-read-btn">Mark all as read</button>
+                    </div>
+                    <ul id="notification-list"></ul>
+                </div>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/customers" class="active">Customers</a></li>
+            <li><a href="/suppliers">Suppliers</a></li>
+            <li><a href="/purchase-orders">Purchase Orders</a></li>
+            <li><a href="/pos">Point of Sale</a></li>
+            <li><a href="/sales">Sales</a></li>
+            <li><a href="/expenses">Expenses</a></li>
+            <li><a href="/stock">Stock Mgt.</a></li>
+            <li><a href="/adjustments">Adjustments</a></li>
+            <li><a href="/reports">Reports</a></li>
+            <li><a href="/settings">Settings</a></li>
+        </ul>
+    </nav>
+    <main class="page-grid">
+        <section class="card">
+            <h2 id="customer-form-title">Add New Customer</h2>
+            <form id="customer-form">
+                <input type="hidden" id="customer-id" name="id">
+                <div class="form-group">
+                    <label for="customer-name">Name:</label>
+                    <input type="text" id="customer-name" name="name" required>
+                </div>
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="customer-phone">Phone:</label>
+                        <input type="tel" id="customer-phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customer-email">Email:</label>
+                        <input type="email" id="customer-email" name="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="customer-address">Address:</label>
+                    <textarea id="customer-address" name="address" rows="2"></textarea>
+                </div>
+                 <div class="form-group">
+                    <label for="customer-notes">Notes:</label>
+                    <textarea id="customer-notes" name="notes" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="customer-image">Customer Image:</label>
+                    <input type="file" id="customer-image" name="image" accept="image/*">
+                    <img id="image-preview-customer" src="" alt="Image Preview" class="image-preview-box">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" id="customer-submit-btn" class="primary-btn">Add Customer</button>
+                    <button type="button" id="cancel-customer-edit-btn" class="secondary-btn" style="display:none;">Cancel Edit</button>
+                </div>
+            </form>
+        </section>
+        <section class="card">
+            <div class="page-header">
+                <h2>Customer List</h2>
+                <button id="export-customers-btn" class="secondary-btn">Export to CSV</button>
+            </div>
+            <div id="customer-loader" class="loader-container"><div class="loader"></div></div>
+            <table id="customer-list-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Credit Balance</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="customer-list-body"></tbody>
+            </table>
+            <div class="pagination-controls" id="customer-pagination"></div>
+        </section>
+    </main>
+    <script src="/static/script.js"></script>
+</body>
+</html>

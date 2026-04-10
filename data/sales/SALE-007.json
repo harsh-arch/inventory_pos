@@ -1,0 +1,27 @@
+{
+    "id": "SALE-007",
+    "type": "sale",
+    "timestamp": "2025-10-02T10:41:47.933473Z",
+    "cart": [
+        {
+            "id": "PROD-001",
+            "name": "aalo",
+            "quantity": 2,
+            "price": 100,
+            "cost": 16.0
+        },
+        {
+            "id": "PROD-002",
+            "name": "PYAJ",
+            "quantity": 1,
+            "price": 20,
+            "cost": 19.0
+        }
+    ],
+    "totalAmount": 220,
+    "discount": 0,
+    "paymentMethod": "Cash",
+    "customerId": "cash_customer",
+    "customerName": "Walk-in / Cash Customer",
+    "remarks": ""
+}
